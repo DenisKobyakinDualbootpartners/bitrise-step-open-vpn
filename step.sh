@@ -46,7 +46,7 @@ EOF
     echo ${client_key} | base64 -D -o client.key > /dev/null 2>&1
     echo ${password} > ./openvpn/auth.conf
 
-    sudo openvpn --client --dev tun --proto ${proto} --remote ${host} ${port} --auth-user-pass ./openvpn/auth.conf --daemon --resolv-retry infinite --nobind --persist-key --persist-tun --comp-lzo --verb 3 --ca ca.crt --cert client.crt --key client.key > /dev/null 2>&1 &
+    sudo openvpn --client --dev tun --proto ${proto} --remote ${host} ${port} --daemon --resolv-retry infinite --nobind --persist-key --persist-tun --comp-lzo --verb 3 --ca ca.crt --cert client.crt --key client.key > /dev/null 2>&1 &
 
     sleep 5
 

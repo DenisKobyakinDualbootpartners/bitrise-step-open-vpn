@@ -24,9 +24,6 @@
       echo "VPN connection failed!"
       exit 1
     fi
-    ;;
-  *)
     echo "Unknown operative system: $OSTYPE, exiting"
     exit 1
-    ;;
 esac

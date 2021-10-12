@@ -35,14 +35,13 @@ toolkit:
     entry_file: step.sh
 
 inputs:
-  - ovpn_file: "$VPN_OVPN_FILE_BASE64"
+  - ovpn_file: "$VPN_OVPN_FILE"
     opts:
-      title: "Base 64 encoded OVPN file"
-      summary: "Base 64 encoded OVPN file"
-      description: "Base 64 encoded OVPN file"
+      title: "OVPN file"
+      summary: "OVPN file"
+      description: "OVPN file"
       is_expand: true
       is_required: true
-      is_sensitive: true
   - user: "$VPN_USER"
     opts:
       title: "Username"

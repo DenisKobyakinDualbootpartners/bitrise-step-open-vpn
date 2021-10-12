@@ -10,8 +10,11 @@ darwin*)
 
     mkdir ./openvpn
 
-    echo ${ovpn_file} | base64 -D -o ./openvpn/client.conf
-    echo ${user} >./openvpn/auth.conf 
+    # We create the .conf file with the parameters of the VPN, including the authorization through the txt file
+    cat <<EOF >./openvpn/client.conf
+${ovpn_file}
+EOF
+    echo ${user} >./openvpn/auth.conf
     echo ${password} >>./openvpn/auth.conf
 
     sudo openvpn --config ./openvpn/client.conf --auth-user-pass ./openvpn/auth.conf

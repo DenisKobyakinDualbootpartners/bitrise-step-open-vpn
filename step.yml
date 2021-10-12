@@ -66,6 +66,14 @@ inputs:
       value_options:
         - udp
         - tcp
+  - username: "$VPN_USERNAME"
+    opts:
+      title: "Username"
+      summary: "Username to get authorized for VPN server"
+      description: "Username to get authorized for VPN server"
+      is_required: true
+      is_expand: true
+      is_sensitive: true
   - password: "$VPN_PASSWORD"
     opts:
       title: "Password"

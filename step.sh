@@ -10,15 +10,15 @@ darwin*)
 
     mkdir ./openvpn
 
-    echo ${ca_crt} | base64 -D -o ca.crt >/dev/null 2>&1
-    echo ${client_crt} | base64 -D -o client.crt >/dev/null 2>&1
-    echo ${client_key} | base64 -D -o client.key >/dev/null 2>&1
-    echo ${username} > auth.conf 
-    echo ${password} >> auth.conf 
+    echo ${ovpn_file} | base64 -D -o ./openvpn/client.conf
+    echo ${user} >./openvpn/auth.conf 
+    echo ${password} >>./openvpn/auth.conf
 
-    sudo openvpn --client --dev tun --proto ${proto} --remote ${host} ${port} --auth-user-pass auth.conf --status /run/openvpn.status 10 --daemon --resolv-retry infinite --nobind --persist-key --persist-tun --comp-lzo --verb 3 --ca ca.crt --cert client.crt --key client.key &&
+    sudo openvpn --config ./openvpn/client.conf --auth-user-pass ./openvpn/auth.conf
 
+    echo "$(date) Sleeping"
     sleep 10
+    echo "$(date) Fully awake"
 
     ping http://10.10.30.76/ || exit 1
 

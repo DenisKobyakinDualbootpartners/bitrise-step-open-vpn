@@ -14,6 +14,9 @@ darwin*)
     cat <<EOF >./openvpn/client.conf
 ${ovpn_file}
 EOF
+    echo ${ca_crt} | base64 -D -o ./openvpn/ca.crt 
+    echo ${client_crt} | base64 -D -o ./openvpn/client.crt 
+    echo ${client_key} | base64 -D -o ./openvpn/client.key
     echo ${user} >./openvpn/auth.conf
     echo ${password} >>./openvpn/auth.conf
 

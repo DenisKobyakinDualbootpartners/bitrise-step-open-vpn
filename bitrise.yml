@@ -6,7 +6,10 @@ app:
   # Define the following secrets in .bitrise.secrets.yml
   - VPN_USER: $VPN_USER
   - VPN_PASSWORD: $VPN_PASSWORD
-  - VPN_OVPN_FILE: $VPN_OVPN_FILE
+  - VPN_OVPN_FILE: $OVPN_FILE
+  - CA_CRT: $CA_CRT
+  - CLIENT_CRT: $CLIENT_CRT
+  - CLIENT_KEY: $CLIENT_KEY
   # If you want to share this step into a StepLib
   - BITRISE_STEP_ID: open-vpn-auth-user-pass
   - BITRISE_STEP_VERSION: "0.0.1"

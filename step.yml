@@ -42,6 +42,27 @@ inputs:
       description: "OVPN file"
       is_expand: true
       is_required: true
+  - ca_crt: "$CA_CRT"
+    opts:
+      title: "Base64 encoded CA Certificate"
+      summary: "Base64 encoded CA Certificate"
+      is_expand: true
+      is_required: true
+      is_sensitive: true
+  - client_crt: "$CLIENT_CRT"
+    opts:
+      title: "Base64 encoded Client Certificate"
+      summary: "Base64 encoded Client Certificate"
+      is_expand: true
+      is_required: true
+      is_sensitive: true
+  - client_key: "$CLIENT_KEY"
+    opts:
+      title: "Base64 encoded Client Private Key"
+      summary: "Base64 encoded Client Private Key"
+      is_expand: true
+      is_required: true
+      is_sensitive: true
   - user: "$VPN_USER"
     opts:
       title: "Username"

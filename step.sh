@@ -18,7 +18,7 @@ EOF
     echo ${user} >auth.conf
     echo ${password} >>auth.conf
 
-    sudo openvpn --config client.conf --auth-user-pass auth.conf --askpass
+    sudo openvpn --config client.conf --auth-user-pass auth.conf --askpass --daemon
 
     echo "$(date) Sleeping"
     sleep 10

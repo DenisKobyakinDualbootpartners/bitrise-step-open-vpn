@@ -8,9 +8,6 @@ linux*)
 darwin*)
     echo "Configuring for Mac OS"
 
-    echo " Installing net tools"
-    apt -y install net-tools
-
     # We create the .conf file with the parameters of the VPN, including the authorization through the txt file
     cat <<EOF >client.conf
 ${ovpn_file}

@@ -8,19 +8,17 @@ linux*)
 darwin*)
     echo "Configuring for Mac OS"
 
-    mkdir ./openvpn
-
     # We create the .conf file with the parameters of the VPN, including the authorization through the txt file
-    cat <<EOF >./openvpn/client.conf
+    cat <<EOF >client.conf
 ${ovpn_file}
 EOF
-    echo ${ca_crt} | base64 -D -o ./openvpn/ca.crt 
-    echo ${client_crt} | base64 -D -o ./openvpn/client.crt 
-    echo ${client_key} | base64 -D -o ./openvpn/client.key
-    echo ${user} >./openvpn/auth.conf
-    echo ${password} >>./openvpn/auth.conf
+    echo ${ca_crt} | base64 -D -o ca.crt
+    echo ${client_crt} | base64 -D -o client.crt
+    echo ${client_key} | base64 -D -o client.key
+    echo ${user} >auth.conf
+    echo ${password} >>auth.conf
 
-    sudo openvpn --config ./openvpn/client.conf --auth-user-pass ./openvpn/auth.conf
+    sudo openvpn --config client.conf --auth-user-pass auth.conf
 
     echo "$(date) Sleeping"
     sleep 10

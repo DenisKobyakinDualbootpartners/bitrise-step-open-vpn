@@ -25,7 +25,6 @@ run_if: ""
 deps:
   brew:
   - name: openvpn
-  - name: net-tools
   apt_get:
   - name: iputils-ping
   - name: openvpn

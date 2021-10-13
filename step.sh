@@ -21,7 +21,7 @@ EOF
     sudo openvpn --config client.conf --askpass auth.conf --daemon &&
 
     echo "$(date) Sleeping"
-    sleep 30
+    sleep 10
     echo "$(date) Fully awake"
 
     ping -c 5 10.10.30.76

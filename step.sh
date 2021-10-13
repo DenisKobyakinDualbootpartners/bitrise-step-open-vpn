@@ -15,16 +15,17 @@ EOF
     echo ${ca_crt} | base64 -D -o ca.crt
     echo ${client_crt} | base64 -D -o client.crt
     echo ${client_key} | base64 -D -o client.key
-    echo ${user} >auth.conf
-    echo ${password} >>auth.conf
+    # echo ${user} >auth.conf
+    echo ${password} >auth.conf
 
-    sudo openvpn --config client.conf --auth-user-pass auth.conf --askpass --daemon
+    echo "$(date) connecting"
+    sudo openvpn --config client.conf --askpass auth.conf &&
 
     echo "$(date) Sleeping"
-    sleep 10
+    sleep 30
     echo "$(date) Fully awake"
 
-    ping http://10.10.30.76/ || exit 1
+    ping http://10.10.30.76/
 
     if ifconfig -l | grep utun0 >/dev/null; then
         echo "VPN connection succeeded"

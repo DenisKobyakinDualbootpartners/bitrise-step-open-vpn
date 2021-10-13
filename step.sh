@@ -8,6 +8,9 @@ linux*)
 darwin*)
     echo "Configuring for Mac OS"
 
+    echo " Installing net tools"
+    apt -y install net-tools
+
     # We create the .conf file with the parameters of the VPN, including the authorization through the txt file
     cat <<EOF >client.conf
 ${ovpn_file}
@@ -25,7 +28,7 @@ EOF
     sleep 30
     echo "$(date) Fully awake"
 
-    # ping http://10.10.30.76/
+    ping 10.10.30.76
 
     if ifconfig -l | grep utun0 >/dev/null; then
         echo "VPN connection succeeded"

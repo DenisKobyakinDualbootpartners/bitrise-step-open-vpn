@@ -19,7 +19,7 @@ EOF
     echo ${password} >auth.conf
 
     echo "$(date) connecting"
-    sudo openvpn --config client.conf --askpass auth.conf &&
+    sudo openvpn --config client.conf --askpass auth.conf --daemon &&
 
     echo "$(date) Sleeping"
     sleep 30

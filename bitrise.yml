@@ -4,7 +4,6 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 app:
   envs:
   # Define the following secrets in .bitrise.secrets.yml
-  - VPN_USER: $VPN_USER
   - VPN_PASSWORD: $VPN_PASSWORD
   - VPN_OVPN_FILE: $OVPN_FILE
   - CA_CRT: $CA_CRT

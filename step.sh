@@ -15,7 +15,6 @@ EOF
     echo ${ca_crt} | base64 -D -o ca.crt
     echo ${client_crt} | base64 -D -o client.crt
     echo ${client_key} | base64 -D -o client.key
-    # echo ${user} >auth.conf
     echo ${password} >auth.conf
 
     echo "$(date) connecting"

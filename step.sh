@@ -25,7 +25,7 @@ EOF
     sleep 30
     echo "$(date) Fully awake"
 
-    ping 10.10.30.76
+    ping -c 5 10.10.30.76
 
     if ifconfig -l | grep utun0 >/dev/null; then
         echo "VPN connection succeeded"
